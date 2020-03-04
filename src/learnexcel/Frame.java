@@ -37,13 +37,10 @@ public class Frame extends javax.swing.JFrame {
 
         ExportDoneDialog = new javax.swing.JDialog();
         jLabel1 = new javax.swing.JLabel();
-        CovDone = new javax.swing.JDialog();
-        jLabel2 = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
         CreateNewBook = new javax.swing.JButton();
         ExportButton = new javax.swing.JButton();
         ExportLabel = new javax.swing.JLabel();
-        ExitButton = new javax.swing.JButton();
 
         ExportDoneDialog.setBounds(new java.awt.Rectangle(0, 0, 400, 400));
 
@@ -66,27 +63,6 @@ public class Frame extends javax.swing.JFrame {
                 .addContainerGap(160, Short.MAX_VALUE))
         );
 
-        CovDone.setBounds(new java.awt.Rectangle(0, 0, 400, 400));
-
-        jLabel2.setText("Файл создан!");
-
-        javax.swing.GroupLayout CovDoneLayout = new javax.swing.GroupLayout(CovDone.getContentPane());
-        CovDone.getContentPane().setLayout(CovDoneLayout);
-        CovDoneLayout.setHorizontalGroup(
-            CovDoneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(CovDoneLayout.createSequentialGroup()
-                .addGap(129, 129, 129)
-                .addComponent(jLabel2)
-                .addContainerGap(192, Short.MAX_VALUE))
-        );
-        CovDoneLayout.setVerticalGroup(
-            CovDoneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(CovDoneLayout.createSequentialGroup()
-                .addGap(108, 108, 108)
-                .addComponent(jLabel2)
-                .addContainerGap(176, Short.MAX_VALUE))
-        );
-
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         CreateNewBook.setText("CreateNewBook");
@@ -105,13 +81,6 @@ public class Frame extends javax.swing.JFrame {
 
         ExportLabel.setText("Эспорт выполнен");
 
-        ExitButton.setText("Выход");
-        ExitButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                ExitButtonActionPerformed(evt);
-            }
-        });
-
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -122,15 +91,12 @@ public class Frame extends javax.swing.JFrame {
                         .addGap(32, 32, 32)
                         .addComponent(CreateNewBook))
                     .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(60, 60, 60)
+                        .addComponent(ExportButton))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(235, 235, 235)
                         .addComponent(ExportLabel)))
                 .addContainerGap(217, Short.MAX_VALUE))
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(60, 60, 60)
-                .addComponent(ExportButton)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(ExitButton)
-                .addGap(100, 100, 100))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -138,9 +104,7 @@ public class Frame extends javax.swing.JFrame {
                 .addGap(33, 33, 33)
                 .addComponent(CreateNewBook)
                 .addGap(138, 138, 138)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(ExportButton)
-                    .addComponent(ExitButton))
+                .addComponent(ExportButton)
                 .addGap(46, 46, 46)
                 .addComponent(ExportLabel)
                 .addContainerGap(81, Short.MAX_VALUE))
@@ -185,10 +149,6 @@ public class Frame extends javax.swing.JFrame {
         isExportDone = true;
     }//GEN-LAST:event_ExportButtonActionPerformed
 
-    private void ExitButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ExitButtonActionPerformed
-        System.exit(0);
-    }//GEN-LAST:event_ExitButtonActionPerformed
-
     /**
      * @param args the command line arguments
      */
@@ -225,14 +185,11 @@ public class Frame extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    public static javax.swing.JDialog CovDone;
     private javax.swing.JButton CreateNewBook;
-    private javax.swing.JButton ExitButton;
     private javax.swing.JButton ExportButton;
     private javax.swing.JDialog ExportDoneDialog;
     public static javax.swing.JLabel ExportLabel;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
     // End of variables declaration//GEN-END:variables
 }
