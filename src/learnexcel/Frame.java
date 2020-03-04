@@ -19,6 +19,7 @@ public class Frame extends javax.swing.JFrame {
      * Creates new form Frame
      */
     ExcelEditor myExcelEditor;
+    boolean isExportDone;
     public Frame() {
         myExcelEditor = new ExcelEditor();
         initComponents();
@@ -34,10 +35,33 @@ public class Frame extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        ExportDoneDialog = new javax.swing.JDialog();
+        jLabel1 = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
         CreateNewBook = new javax.swing.JButton();
         ExportButton = new javax.swing.JButton();
         ExportLabel = new javax.swing.JLabel();
+
+        ExportDoneDialog.setBounds(new java.awt.Rectangle(0, 0, 400, 400));
+
+        jLabel1.setText("Сначала выполните эскспорт!");
+
+        javax.swing.GroupLayout ExportDoneDialogLayout = new javax.swing.GroupLayout(ExportDoneDialog.getContentPane());
+        ExportDoneDialog.getContentPane().setLayout(ExportDoneDialogLayout);
+        ExportDoneDialogLayout.setHorizontalGroup(
+            ExportDoneDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(ExportDoneDialogLayout.createSequentialGroup()
+                .addGap(143, 143, 143)
+                .addComponent(jLabel1)
+                .addContainerGap(80, Short.MAX_VALUE))
+        );
+        ExportDoneDialogLayout.setVerticalGroup(
+            ExportDoneDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(ExportDoneDialogLayout.createSequentialGroup()
+                .addGap(124, 124, 124)
+                .addComponent(jLabel1)
+                .addContainerGap(160, Short.MAX_VALUE))
+        );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -105,12 +129,15 @@ public class Frame extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void CreateNewBookActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CreateNewBookActionPerformed
+        if (isExportDone){
         try {
             myExcelEditor.createNewBook();
         } catch (IOException ex) {
             Logger.getLogger(Frame.class.getName()).log(Level.SEVERE, null, ex);
         }
-        System.exit(0);
+        } else {
+            ExportDoneDialog.setVisible(true);
+        }
     }//GEN-LAST:event_CreateNewBookActionPerformed
 
     private void ExportButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ExportButtonActionPerformed
@@ -119,6 +146,7 @@ public class Frame extends javax.swing.JFrame {
         } catch (IOException ex) {
             Logger.getLogger(Frame.class.getName()).log(Level.SEVERE, null, ex);
         }
+        isExportDone = true;
     }//GEN-LAST:event_ExportButtonActionPerformed
 
     /**
@@ -159,7 +187,9 @@ public class Frame extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton CreateNewBook;
     private javax.swing.JButton ExportButton;
+    private javax.swing.JDialog ExportDoneDialog;
     public static javax.swing.JLabel ExportLabel;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     // End of variables declaration//GEN-END:variables
 }
