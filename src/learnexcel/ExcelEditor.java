@@ -44,6 +44,7 @@ public class ExcelEditor {
 
     void createNewBook() throws IOException {
         Workbook MyWB = new XSSFWorkbook();
+        Path file_path = FileSystems.getDefault().getPath("Cov.xlsx");
         int n=MyExport.get("X").length;
         double Mx=0,My=0,Mz=0;
         double sum=0;
@@ -77,8 +78,8 @@ public class ExcelEditor {
         covYZ/=(n-1);
         Sheet MyFirstSheet = MyWB.createSheet("Первый лист");
         Row MyFirstRow = MyFirstSheet.createRow(0);
-        Row MySecondRow = MyFirstSheet.createRow(0);
-        Row MyThirdRow = MyFirstSheet.createRow(0);
+        Row MySecondRow = MyFirstSheet.createRow(1);
+        Row MyThirdRow = MyFirstSheet.createRow(2);
         Cell name1 = MyFirstRow.createCell(0);
         Cell value1 = MyFirstRow.createCell(1);
         Cell name2 = MySecondRow.createCell(0);
@@ -91,11 +92,11 @@ public class ExcelEditor {
         value1.setCellValue(covXY);
         value2.setCellValue(covXZ);
         value3.setCellValue(covYZ);
-        Path file_path = FileSystems.getDefault().getPath("FirstTry.xlsx");
+        
         FileOutputStream stream = new FileOutputStream(new File(file_path.toString()));
         MyWB.write(stream);
         MyWB.close();
-        
+        Frame.CovDone.setVisible(true);
     }  
     
 }
